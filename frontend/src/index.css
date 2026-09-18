@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+
+  --color-void: #030712;
+  --color-abyss: #07152B;
+  --color-deep: #0B1F3A;
+  --color-panel: #10233D;
+  --color-accent: #2563EB;
+  --color-cyan: #06B6D4;
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+  --color-success: #22C55E;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(ellipse 120% 80% at 50% -10%, #0B1F3A 0%, #030712 55%), #030712;
+  color: #E6ECF5;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #030712; }
+::-webkit-scrollbar-thumb { background: #10233D; border-radius: 8px; border: 2px solid #030712; }
+::-webkit-scrollbar-thumb:hover { background: #16304f; }
+
+:focus-visible {
+  outline: 2px solid #06B6D4;
+  outline-offset: 2px;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+@keyframes dash-flow { to { stroke-dashoffset: -40; } }
+.flow-line { stroke-dasharray: 6 6; animation: dash-flow 1.6s linear infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spin-slow 8s linear infinite; }
+
+@keyframes node-glow {
+  0%, 100% { filter: drop-shadow(0 0 6px currentColor); }
+  50% { filter: drop-shadow(0 0 16px currentColor); }
+}
+.node-glow { animation: node-glow 2.4s ease-in-out infinite; }
+
+.glass-panel {
+  background: linear-gradient(180deg, rgba(16, 35, 61, 0.6) 0%, rgba(7, 21, 43, 0.6) 100%);
+  border: 1px solid rgba(148, 172, 208, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(148, 172, 208, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 172, 208, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
